@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <!--<properties resource="jdbc.properties"></properties>-->
+<!--  <classPathEntry location="/home/xsy/dev-tools/maven-respository/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.jar"/>-->
+    <classPathEntry location="D:\devtools\maven-repository\mysql\mysql-connector-java\5.1.39\mysql-connector-java-5.1.39.jar"/>
+  <context id="testTables" targetRuntime="MyBatis3">
+    <property name="useActualColumnNames" value="false"/>
+    <!-- 引用的插件地址：https://github.com/itfsw/mybatis-generator-plugin -->
+    <!-- 查询单条数据插件 -->
+    <!--    <plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>-->
+    <!-- 代码注释 -->
+    <!-- MySQL分页插件 -->
+    <plugin type="com.itfsw.mybatis.generator.plugins.LimitPlugin"/>
+    <!-- 数据Model链式构建插件 -->
+    <!--    <plugin type="com.itfsw.mybatis.generator.plugins.ModelBuilderPlugin"/>-->
+    <!-- Example Criteria 增强插件 -->
+    <!--    <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin"/>-->
+    <!-- Example 目标包修改插件 -->
+    <!-- 修改Example类生成到目标包下 -->
+    <!--<plugin type="com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin"/>-->
+    <!--<property name="targetPackage" value="com.itfsw.mybatis.generator.dao.example"/>-->
+    <!-- 批量插入插件 -->
+    <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin"/>
+    <!-- 数据Model属性对应Column获取插件 -->
+    <!--    <plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>-->
+    <!-- 存在即更新插件 -->
+    <!--<plugin type="com.itfsw.mybatis.generator.plugins.UpsertPlugin">-->
+    <!--
+    支持upsertByExample，upsertByExampleSelective操作
+    ！需开启allowMultiQueries=true多条sql提交操作，所以不建议使用！
+    -->
+    <!--<property name="allowMultiQueries" value="true"/>-->
+    <!--</plugin>-->
+
+    <commentGenerator>
+      <property name="suppressDate" value="false"/>
+      <property name="suppressAllComments" value="false"/>
+      <property name="addRemarkComments" value="false"/>
+    </commentGenerator>
+    <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/tuna?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;rewriteBatchedStatements=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" driverClass="com.mysql.jdbc.Driver"
+      password="870712" userId="root">
+    </jdbcConnection>
+    <javaTypeResolver>
+      <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.tuna.data.dao.tenant.domain" targetProject="src/main/java">
+      <property name="enableSubPackages" value="true"/>
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+    <sqlMapGenerator targetPackage="resources.mapper" targetProject="src/main">
+      <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+    <javaClientGenerator targetPackage="com.tuna.data.dao.tenant.mapper" targetProject="src/main/java" type="XMLMAPPER">
+      <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+
+    <table domainObjectName="Customer" tableName="erp_customer" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="Supplier" tableName="erp_supplier" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="Contacts" tableName="erp_contacts" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="Category" tableName="erp_category" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="Account" tableName="erp_account" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="AccountClose" tableName="erp_account_close" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="AccountDetail" tableName="erp_account_detail" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="Address" tableName="erp_address" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="BarcodeRule" tableName="erp_barcode_rule" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="CodeRule" tableName="erp_code_rule" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="Invoice" tableName="erp_invoice" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="InvoiceItem" tableName="erp_invoice_item" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="CustomerAccount" tableName="erp_customer_account" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="SupplierAccount" tableName="erp_supplier_account" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="BuyOrder" tableName="erp_order_buy" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="BuyOrderItem" tableName="erp_order_buy_item" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="BuyOrderSequence" tableName="erp_order_buy_sequence" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="MoneyOrder" tableName="erp_order_money" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="MoneyOrderItem" tableName="erp_order_money_item" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="MoneyOrderSource" tableName="erp_order_money_source" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="OtherMoneyOrder" tableName="erp_order_money_other" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="OtherMoneyOrderItem" tableName="erp_order_money_other_item" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="RemitOrder" tableName="erp_order_remit" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="RemitOrderItem" tableName="erp_order_remit_item" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="SaleOrder" tableName="erp_order_sale" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="SaleOrderItem" tableName="erp_order_sale_item" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="SaleOrderSequence" tableName="erp_order_sale_sequence" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="PayWay" tableName="erp_pay_way" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="Product" tableName="erp_product" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="ProductBrand" tableName="erp_product_brand" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="ProductPicture" tableName="erp_product_picture" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="ProductSuit" tableName="erp_product_suit" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="ProductPrice" tableName="erp_product_price" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="ProductWarn" tableName="erp_product_warn" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+	<table domainObjectName="ProductWarehouse" tableName="erp_product_warehouse" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+	<table domainObjectName="ProductUnit" tableName="erp_product_unit" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="ProductSuit" tableName="erp_product_suit" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+	<table domainObjectName="PurchaseFee" tableName="erp_purchase_fee" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="WarehouseAdjust" tableName="erp_warehouse_adjust" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="WarehouseAdjustDetail" tableName="erp_warehouse_adjust_detail" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="WarehouseCount" tableName="erp_warehouse_count" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="WarehouseCountDetail" tableName="erp_warehouse_count_detail" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="WarehouseCountSequence" tableName="erp_warehouse_count_sequence" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="WarehouseLog" tableName="erp_warehouse_log" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="WarehouseOrder" tableName="erp_warehouse_order" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table domainObjectName="WarehouseOrderDetail" tableName="erp_warehouse_order_detail" schema="tuna" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+  </context>
+</generatorConfiguration>

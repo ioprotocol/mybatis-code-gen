@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>tuna.codegen</groupId>
+  <artifactId>tuna-codegen</artifactId>
+  <name>Tuna Erp Code Generate</name>
+  <version>1.0.0</version>
+  <description>Auto generate domain classes from database schemas</description>
+
+  <dependencies>
+    <dependency>
+      <artifactId>mybatis-generator-core</artifactId>
+      <groupId>org.mybatis.generator</groupId>
+      <version>1.3.7</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>toolchain</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <toolchains>
+            <jdk>
+              <version>1.8</version>
+            </jdk>
+          </toolchains>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <configuration>
+              <!-- compile everything to ensure module-info contains right entries -->
+              <release>1.8</release>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <release>1.8</release>
+          <target>1.8</target>
+          <source>1.8</source>
+          <encoding>UTF-8</encoding>
+          <showDeprecation>true</showDeprecation>
+          <showWarnings>true</showWarnings>
+          <optimize>true</optimize>
+          <jdkToolchain>
+            <version>1.8</version>
+          </jdkToolchain>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.mybatis.generator</groupId>
+        <artifactId>mybatis-generator-maven-plugin</artifactId>
+        <version>1.3.7</version>
+        <configuration>
+          <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+          <overwrite>true</overwrite>
+          <verbose>true</verbose>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <artifactId>mybatis-generator-core</artifactId>
+            <groupId>org.mybatis.generator</groupId>
+            <version>1.3.7</version>
+          </dependency>
+          <dependency>
+            <artifactId>mybatis-generator-plugin</artifactId>
+            <groupId>com.itfsw</groupId>
+            <version>1.2.12</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+</project>
