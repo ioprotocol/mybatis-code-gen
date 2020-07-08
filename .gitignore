@@ -11,3 +11,5 @@ site/node_modules/*
 site/.cache/*
 node_modules
 ui/node_modules
+src/main/java/*
+src/main/resources/mapper/*
